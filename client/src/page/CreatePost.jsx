@@ -62,10 +62,11 @@ const CreatePost = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(form),
+          body: JSON.stringify({ ...form }),
         });
 
         await response.json();
+        alert("Success");
         navigate("/");
       } catch (err) {
         alert(err);
@@ -73,7 +74,7 @@ const CreatePost = () => {
         setLoading(false);
       }
     } else {
-      alert("Please enter a prompt and generate an image !");
+      alert("Please generate an image with proper details");
     }
   };
 
